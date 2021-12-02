@@ -1,0 +1,11 @@
+with open("input.txt", "r") as f:
+    depth_readings = f.read().strip()
+depth_readings_list = depth_readings.split('\n')
+array_depths = [[int(each_int) for each_int in line.split()] for line in depth_readings_list]
+changes = 0
+for i in range(len(array_depths)):
+    if array_depths[i] > array_depths[i-1]:
+        changes+=1
+    else:
+        continue
+print(changes) 
