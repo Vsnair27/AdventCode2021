@@ -1,0 +1,14 @@
+with open("input.txt", "r") as f:
+    depth_readings = f.read().strip()
+depth_readings_list = depth_readings.split('\n')
+array_depths = [[int(each_int) for each_int in line.split()] for line in depth_readings_list]
+sum_changes = 0
+for i in range(2,len(array_depths)-1):
+    first_window = sum(array_depths[i] + array_depths[i-1] + array_depths[i-2])
+    second_window = sum(array_depths[i+1] + array_depths[i] + array_depths[i-1])
+    if first_window < second_window:
+        sum_changes+=1
+    else:
+        continue
+
+print(sum_changes) 
